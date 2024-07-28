@@ -1,0 +1,43 @@
+##################################################################################################
+# Msg UI
+##################################################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msg-ui
+  labels:
+    app: msg-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msg-ui
+  template:
+    metadata:
+      name: msg-ui
+      labels:
+        app: msg-ui
+    spec:
+      containers:
+        - name: msg-ui
+          image: ganesh01devops/msg-ui:0.0.4
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: msg-ui
+spec:
+  selector:
+    app: msg-ui
+  ports:
+    - port: 80
+      protocol: TCP

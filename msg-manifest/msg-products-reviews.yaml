@@ -1,0 +1,87 @@
+##################################################################################################
+# Msg Products
+##################################################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msg-products
+  labels:
+    app: msg-products
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msg-products
+  template:
+    metadata:
+      name: msg-products
+      labels:
+        app: msg-products
+    spec:
+      containers:
+        - name: msg-products
+          image: ganesh01devops/msg-products:0.0.2
+          ports:
+            - containerPort: 8090
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: msg-products
+spec:
+  selector:
+    app: msg-products
+  ports:
+    - port: 8090
+      name: http
+---
+##################################################################################################
+# Msg Reviews
+##################################################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msg-reviews
+  labels:
+    app: msg-reviews
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msg-reviews
+  template:
+    metadata:
+      name: msg-reviews
+      labels:
+        app: msg-reviews
+    spec:
+      containers:
+        - name: msg-reviews
+          image: ganesh01devops/msg-reviews:0.0.2
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: msg-reviews
+spec:
+  selector:
+    app: msg-reviews
+  ports:
+    - port: 8080
+      name: http

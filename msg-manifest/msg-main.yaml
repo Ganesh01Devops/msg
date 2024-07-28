@@ -1,0 +1,43 @@
+##################################################################################################
+# Msg Main
+##################################################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msg-main
+  labels:
+    app: msg-main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msg-main
+  template:
+    metadata:
+      name: msg-main
+      labels:
+        app: msg-main
+    spec:
+      containers:
+        - name: msg-main
+          image: ganesh01devops/msg-main:0.0.4
+          ports:
+            - containerPort: 9000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: msg-main
+spec:
+  selector:
+    app: msg-main
+  ports:
+    - port: 9000
+      name: http
