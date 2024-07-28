@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: msg-ui
-          image: ganesh01devops/msg-ui:0.0.4
+          image: ganesh01devops/msg-ui:0.0.5
           ports:
             - containerPort: 80
 ---
