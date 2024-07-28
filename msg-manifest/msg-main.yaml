@@ -23,13 +23,6 @@ spec:
           image: ganesh01devops/msg-main:0.0.4
           ports:
             - containerPort: 9000
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
 ---
 apiVersion: v1
 kind: Service

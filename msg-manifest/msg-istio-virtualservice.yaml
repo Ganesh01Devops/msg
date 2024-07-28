@@ -15,7 +15,7 @@ spec:
     - destination:
         host: msg-main.msg.svc.cluster.local
         port:
-          number: 31849
+          number: 9000
   - match:
     - uri:
         prefix: /
@@ -23,4 +23,4 @@ spec:
     - destination:
         host: msg-ui.msg.svc.cluster.local
         port:
-          number: 30021
+          number: 80

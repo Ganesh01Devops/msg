@@ -23,13 +23,6 @@ spec:
           image: ganesh01devops/msg-products:0.0.2
           ports:
             - containerPort: 8090
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
 ---
 apiVersion: v1
 kind: Service
@@ -67,13 +60,6 @@ spec:
           image: ganesh01devops/msg-reviews:0.0.2
           ports:
             - containerPort: 8080
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
 ---
 apiVersion: v1
 kind: Service
