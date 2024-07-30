@@ -1,0 +1,73 @@
+##################################################################################################
+# Bhokkali UI
+##################################################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bhokkali-ui
+  labels:
+    app: bhokkali-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bhokkali-ui
+  template:
+    metadata:
+      name: bhokkali-ui
+      labels:
+        app: bhokkali-ui
+    spec:
+      containers:
+        - name: bhokkali-ui
+          image: ganesh01devops/bhokkali-ui:0.0.2
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bhokkali-ui
+spec:
+  selector:
+    app: bhokkali-ui
+  ports:
+    - port: 3000
+      name: http
+---
+##################################################################################################
+# Bhokkali Services
+##################################################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bhokkali-services
+  labels:
+    app: bhokkali-services
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bhokkali-services
+  template:
+    metadata:
+      name: bhokkali-services
+      labels:
+        app: bhokkali-services
+    spec:
+      containers:
+        - name: bhokkali-services
+          image: ganesh01devops/bhokkali-services:0.0.1
+          ports:
+            - containerPort: 8090
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bhokkali-services
+spec:
+  selector:
+    app: bhokkali-services
+  ports:
+    - port: 8090
+      name: http

@@ -21,6 +21,6 @@ spec:
         prefix: /
     route:
     - destination:
-        host: bhokkali-ui.msg.svc.cluster.local
+        host: msg-ui.msg.svc.cluster.local
         port:
-          number: 3000
+          number: 80
