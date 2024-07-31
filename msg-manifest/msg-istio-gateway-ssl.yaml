@@ -12,6 +12,6 @@ spec:
       protocol: HTTPS
     tls:
       mode: SIMPLE
-      credentialName: bhokkali-certs
+      credentialName: bhokkali-credential
     hosts:
     - "bhokkali.com"
