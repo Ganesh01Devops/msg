@@ -5,7 +5,7 @@ metadata:
 data: 
   pg_hba.conf: |+
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
-    host     replication     replicationuser         0.0.0.0/0        md5
+    host     all            all            0.0.0.0/0                md5
     # "local" is for Unix domain socket connections only
     local   all             all                                     trust
     # IPv4 local connections:
