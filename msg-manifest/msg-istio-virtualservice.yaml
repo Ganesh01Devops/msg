@@ -24,11 +24,3 @@ spec:
         host: bhokkali-ui.msg.svc.cluster.local
         port:
           number: 3000
-  tcp:
-  - match:
-    - port: 5432
-    route:
-    - destination:
-        host: postgres.postgresql.svc.cluster.local
-        port:
-          number: 5432
