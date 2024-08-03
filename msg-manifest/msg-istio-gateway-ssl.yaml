@@ -15,3 +15,9 @@ spec:
       credentialName: bhokkali-credential
     hosts:
     - "bhokkali.com"
+  - port: 
+      number: 5432
+      name: tcp-postgres
+      protocol: TCP
+    hosts:
+    - "bhokkali.com"
