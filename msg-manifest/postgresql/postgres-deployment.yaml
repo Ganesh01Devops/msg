@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deployment
+  name: postgres
+  namespace: my-database
 spec:
   replicas: 1
   selector:
@@ -14,15 +15,14 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: postgres:latest
+        image: postgres:14
         env:
+        - name: POSTGRES_DB
+          value: mydatabase
         - name: POSTGRES_USER
-          value: postgres
+          value: myuser
         - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret
-              key: postgres-password
+          value: mypassword
         ports:
         - containerPort: 5432
         volumeMounts:
@@ -32,3 +32,15 @@ spec:
       - name: postgres-storage
         persistentVolumeClaim:
           claimName: postgres-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: my-database
+spec:
+  ports:
+  - port: 5432
+  selector:
+    app: postgres
+  type: LoadBalancer
