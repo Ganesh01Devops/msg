@@ -5,7 +5,7 @@ metadata:
 data: 
   pg_hba.conf: |+
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
-    host     all            all            0.0.0.0/0                md5
+    host     replication     replicationuser         0.0.0.0/0        md5
     # "local" is for Unix domain socket connections only
     local   all             all                                     trust
     # IPv4 local connections:
@@ -134,10 +134,10 @@ metadata:
   labels:
     app: postgres
 spec:
-  type: NodePort
   ports:
-   - port: 5432
-     targetPort: 5432
-     protocol: TCP
+  - port: 5432
+    targetPort: 5432
+    name: postgres
+  clusterIP: None
   selector:
     app: postgres
