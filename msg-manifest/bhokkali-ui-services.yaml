@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: bhokkali-ui
-          image: ganesh01devops/bhokkali-ui:0.0.2
+          image: ganesh01devops/bhokkali-ui:0.0.3
           ports:
             - containerPort: 3000
 ---
