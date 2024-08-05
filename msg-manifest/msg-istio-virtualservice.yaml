@@ -10,7 +10,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /api/v1/
+        prefix: /api/v1/getAcademicYearsList
     route:
     - destination:
         host: bhokkali-services.msg.svc.cluster.local
