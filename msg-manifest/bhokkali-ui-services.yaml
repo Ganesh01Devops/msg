@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: bhokkali-ui
-          image: ganesh01devops/bhokkali-ui:0.0.3
+          image: ganesh01devops/bhokkali-ui:0.0.4
           ports:
             - containerPort: 3000
 ---
@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: bhokkali-services
-          image: ganesh01devops/bhokkali-services:0.0.3
+          image: ganesh01devops/bhokkali-services:0.0.4
           ports:
             - containerPort: 8090
 ---
