@@ -10,6 +10,14 @@ spec:
   http:
   - match:
     - uri:
+        regex: /api/v1/.*
+    route:
+    - destination:
+        host: bhokkali-services.msg.svc.cluster.local
+        port:
+          number: 8090
+  - match:
+    - uri:
         prefix: /
     route:
     - destination:
