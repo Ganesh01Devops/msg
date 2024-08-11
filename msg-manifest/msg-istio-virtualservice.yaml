@@ -26,6 +26,14 @@ spec:
           number: 9000
   - match:
     - uri:
+        prefix: /products
+    route:
+    - destination:
+        host: msg-ui.msg.svc.cluster.local
+        port:
+          number: 80
+  - match:
+    - uri:
         prefix: /
     route:
     - destination:
