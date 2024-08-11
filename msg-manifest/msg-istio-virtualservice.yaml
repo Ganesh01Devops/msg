@@ -10,12 +10,20 @@ spec:
   http:
   - match:
     - uri:
-        regex: /api/v1/.*
+        prefix: /api/v1/getAcademicYearsList
     route:
     - destination:
         host: bhokkali-services.msg.svc.cluster.local
         port:
           number: 8090
+  - match:
+    - uri:
+        prefix: /api/v1/getProducts
+    route:
+    - destination:
+        host: msg-main.msg.svc.cluster.local
+        port:
+          number: 9000
   - match:
     - uri:
         prefix: /
