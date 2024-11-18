@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: bhokkali-services
-          image: ganesh01devops/bhokkali-services:0.0.7
+          image: ganesh01devops/bhokkali-services:1.0.0
           ports:
             - containerPort: 8090
 ---
